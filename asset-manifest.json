@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/jessicaliangphoto/static/css/main.073c9b0a.css",
+    "main.js": "/jessicaliangphoto/static/js/main.6626448f.js",
+    "static/js/787.da69ad08.chunk.js": "/jessicaliangphoto/static/js/787.da69ad08.chunk.js",
+    "static/media/logo.svg": "/jessicaliangphoto/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/jessicaliangphoto/index.html",
+    "main.073c9b0a.css.map": "/jessicaliangphoto/static/css/main.073c9b0a.css.map",
+    "main.6626448f.js.map": "/jessicaliangphoto/static/js/main.6626448f.js.map",
+    "787.da69ad08.chunk.js.map": "/jessicaliangphoto/static/js/787.da69ad08.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.6626448f.js"
+  ]
+}
