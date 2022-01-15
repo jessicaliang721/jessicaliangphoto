@@ -1,12 +1,50 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import {
+    BrowserRouter,
+    Routes,
+    Route
+} from "react-router-dom";
+
 import App from './App';
+import './index.css';
 import reportWebVitals from './reportWebVitals';
+import Collections from "./routes/Collections";
+import About from "./routes/About";
+import Collection from "./routes/Collection";
+import Shop from "./routes/Shop";
+import Contact from "./routes/Contact";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <BrowserRouter>
+          <Routes>
+              <Route path="/" element={<App />}>
+                  <Route path="collections" element={<Collections />}>
+                      <Route
+                        index
+                        element={
+                            <main style={{ padding: "1rem" }}>
+                                <p>Select an invoice</p>
+                            </main>
+                        }
+                      />
+                      <Route path=":collectionId" element={<Collection />} />
+                  </Route>
+                  <Route path="shop" element={<Shop />} />
+                  <Route path="about" element={<About />} />
+                  <Route path="contact" element={<Contact />} />
+                  <Route
+                      path="*"
+                      element={
+                          <main style={{ padding: "1rem" }}>
+                              <p>There's nothing here!</p>
+                          </main>
+                      }
+                  />
+              </Route>
+          </Routes>
+      </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
