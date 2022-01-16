@@ -5,10 +5,9 @@ import axios from "axios";
 
 const PhotoGallery = (props) => {
     const {
-        albumId
+        images
     } = props;
 
-    const [images, setImages] = useState(null);
     const [currentImage, setCurrentImage] = useState(0);
     const [viewerIsOpen, setViewerIsOpen] = useState(false);
 
@@ -22,49 +21,15 @@ const PhotoGallery = (props) => {
         setViewerIsOpen(false);
     }
 
-    useEffect(() => {
-        let shouldCancel = false;
-
-        const createMappedImages = (data) => {
-            let mappedImagesArray = [];
-            data.forEach(url => {
-                var img = new Image();
-                img.onload = function() {
-                    mappedImagesArray.push({
-                        width: this.width,
-                        height: this.height,
-                        src: `${url}=w2048-h1024`
-                    })
-                }
-                img.src = url;
-            });
-            return mappedImagesArray;
-        }
-
-        const getGooglePhotos = async () => {
-            try {
-                const response = await axios.get(`https://google-photos-album-demo2.glitch.me/${albumId}`);
-
-                if (!shouldCancel && response.data && response.data.length > 0) {
-                    const mappedImages = createMappedImages(response.data);
-                    setImages(mappedImages);
-                }
-            } catch (err) {
-                console.error(err);
-            }
-        }
-        getGooglePhotos();
-
-        return () => shouldCancel = true;
-    }, [])
-
     return images
         ? (
             <div>
-                <Gallery photos={images} direction={"column"} onClick={openLightbox} />
+                <Gallery photos={images} direction={"row"} onClick={openLightbox} />
                 <ModalGateway>
                     { viewerIsOpen ? (
-                        <Modal onClose={closeLightbox}>
+                        <Modal
+                            allowFullscreen={false}
+                            onClose={closeLightbox}>
                             <Carousel
                                 currentIndex={currentImage}
                                 views={images}

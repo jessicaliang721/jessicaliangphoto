@@ -9,9 +9,9 @@ import MenuItem from '@mui/material/MenuItem';
 import React, { useState } from 'react';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import {Link, NavLink} from "react-router-dom";
 
 import { pages, siteTitle } from "../../constants";
-import {Link} from "react-router-dom";
 
 const Navbar = () => {
     const [anchorElNav, setAnchorElNav] = useState(null);
@@ -25,20 +25,22 @@ const Navbar = () => {
         <AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="div"
-                        sx={{
-                            mr: 2,
-                            display: {
-                                xs: 'none',
-                                md: 'flex'
-                            }
-                        }}
-                    >
-                        {siteTitle}
-                    </Typography>
+                    <NavLink to="/">
+                        <Typography
+                            variant="h6"
+                            noWrap
+                            component="div"
+                            sx={{
+                                mr: 2,
+                                display: {
+                                    xs: 'none',
+                                    md: 'flex'
+                                }
+                            }}
+                        >
+                            {siteTitle}
+                        </Typography>
+                    </NavLink>
                     <Box
                         sx={{
                             flexGrow: 1,
@@ -80,26 +82,28 @@ const Navbar = () => {
                             }}
                         >
                             {pages.map((page) => (
-                                <Link to={`/${page.url}`}>
+                                <NavLink to={`/${page.url}`}>
                                     <MenuItem
                                         key={page.name}
                                         onClick={handleCloseNavMenu}
                                     >
                                             <Typography textAlign="center">{page.name}</Typography>
                                     </MenuItem>
-                                </Link>
+                                </NavLink>
 
                             ))}
                         </Menu>
                     </Box>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="div"
-                        sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-                    >
-                        {siteTitle}
-                    </Typography>
+                    <NavLink to="/">
+                        <Typography
+                            variant="h6"
+                            noWrap
+                            component="div"
+                            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+                        >
+                            {siteTitle}
+                        </Typography>
+                    </NavLink>
                     <Box sx={{
                         justifyContent: 'flex-end',
                         flexGrow: 1,
@@ -109,7 +113,7 @@ const Navbar = () => {
                         }
                     }}>
                         {pages.map((page) => (
-                            <Link to={`/${page.url}`}>
+                            <NavLink to={`/${page.url}`}>
                                 <Button
                                     key={page.name}
                                     onClick={handleCloseNavMenu}
@@ -117,7 +121,7 @@ const Navbar = () => {
                                 >
                                     {page.name}
                                 </Button>
-                            </Link>
+                            </NavLink>
                         ))}
                     </Box>
                 </Toolbar>

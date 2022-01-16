@@ -14,23 +14,17 @@ import About from "./routes/About";
 import Collection from "./routes/Collection";
 import Shop from "./routes/Shop";
 import Contact from "./routes/Contact";
+import Home from "./routes/Home";
 
 ReactDOM.render(
   <React.StrictMode>
       <BrowserRouter>
           <Routes>
               <Route path="/" element={<App />}>
+                  <Route index element={<Home />} />
                   <Route path="collections" element={<Collections />}>
-                      <Route
-                        index
-                        element={
-                            <main style={{ padding: "1rem" }}>
-                                <p>Select an invoice</p>
-                            </main>
-                        }
-                      />
-                      <Route path=":collectionId" element={<Collection />} />
                   </Route>
+                  <Route path="collections/:collectionName" element={<Collection />} />
                   <Route path="shop" element={<Shop />} />
                   <Route path="about" element={<About />} />
                   <Route path="contact" element={<Contact />} />

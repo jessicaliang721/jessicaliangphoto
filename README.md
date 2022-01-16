@@ -4,6 +4,7 @@
 - [Lightbox](https://github.com/jossmac/react-images)
 - [Handy tutorial](https://medium.com/@ValentinHervieu/how-i-used-google-photos-to-host-my-website-pictures-gallery-d49f037c8e3c)
     - Where I found DIY API: https://glitch.com/edit/#!/google-photos-album-demo2
+- https://www.npmjs.com/package/js-convert-case
 
 ## Available Scripts
 
